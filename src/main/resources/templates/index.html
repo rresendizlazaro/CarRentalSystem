@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>CarRentalSystem</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet">
+        <link th:href="@{/css/styles.css}" href="../static/css/styles.css" rel="stylesheet">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <div class="menu">
+                <h1 class="title">Car Rental System</h1>
+                <nav class="nav-menu container">
+                    <a>Login</a>
+                    <a>Search</a>
+                    <a>Gallery</a>
+                </nav>
+            </div>
+        </header>
+        <section id="about">
+            Every car you want int one place
+        </section>
+        <section id="search">
+        </section>
+        <section class="cars">
+            <div class="container">
+                <h2 class="title">Available cars:</h2>
+                <div class="cars-container" th:if="${cars != null and !cars.empty}">
+                    <div class="car" th:each="car : ${cars}">
+                        <div class="thumb">
+
+                        </div>
+                        <div class="description">
+                            <p class="name" th:text="${car.name}">Show name</p>
+                            <p class="make" th:text="${car.brand}">Show make</p>
+                            <p class="model" th:text="${car.year}">Show model</p>
+                            <p class="available" th:text="${car.availability}">Show Availability</p>
+                        </div>
+                    </div>
+                </div>
+                <div th:if="${cars == null or cars.empty}">
+                    The car's list is empty
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div id="content">
+                Car Rental System All Rights Reserved &copy Raul Resendiz
+            </div>
+        </footer>
     </body>
 </html>

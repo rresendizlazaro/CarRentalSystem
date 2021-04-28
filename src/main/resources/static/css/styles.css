@@ -1,0 +1,136 @@
+:root{
+    --white: #fff;
+    --dark: #555;
+    --primary: #4169E1;
+    --secondary: #31337a;
+    --gray: #ccc;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--dark);
+    font-family: 'Asap Condensed', sans-serif;
+    font-size: 1rem;
+}
+
+h2{
+    font-family: serif;
+}
+
+.menu{
+    background: var(--secondary);
+}
+
+.title{
+    color: var(--primary);
+    font-weight: 700;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.nav-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav-menu a{
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.nav-menu a:hover{
+    background: var(--primary);
+    color: var(--oscuro);
+}
+
+#about{
+    background: var(--primary)
+}
+
+.cars{
+    background: #f2f2f2;
+    padding: 60px 0;
+}
+
+.cars .container{
+    overflow: hidden;
+}
+
+.cars .title{
+    font-size: 34px;
+    line-height: 34px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #5f5d92;
+    text-align: center;
+}
+
+.cars .cars-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cars .cars-container .car{
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+.cars .jobs-container .car .thumb{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.cars .cars-container .car .thumb img{
+    width: 100%;
+    vertical-align: top;
+    border-radius: 3px;
+}
+
+.cars .cars-container .car .description{
+    text-align: center;
+}
+
+.cars .cars-container .car .description .name{
+    font-size: 27px;
+    color: #044888;
+    margin-bottom: 0px;
+}
+
+.cars .cars-container .car .description .make{
+    font-size: 22px;
+    color: #01182e;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cars .cars-container .car .description .model{
+    font-size: 14px;
+    color: #01182e;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.cars .cars-container .car .description .available{
+    font-size: 17px;
+    color: #636363;
+}
+
+@media screen and (max-width: 768px){
+    .nav-menu{
+        flex-direction: column;
+    }
+}

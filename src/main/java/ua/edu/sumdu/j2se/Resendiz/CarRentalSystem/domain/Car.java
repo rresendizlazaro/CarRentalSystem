@@ -8,13 +8,15 @@ import lombok.Data;
 @Entity
 @Table(name = "car")
 public class Car implements Serializable{
+    
     private static final long serialVersionUID = 1L;
     
+    //Indicating the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long CarId;
-    private String Carname;
-    private String make;
-    private int model;
-    private boolean available;
+    private Long idCar;
+    private String name;
+    private String brand;
+    private String year;
+    private String availability;
 }

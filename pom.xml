@@ -14,7 +14,7 @@
 	<name>CarRentalSystem</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>14</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +46,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+                <dependency>
+                    <groupId>org.webjars</groupId>
+                    <artifactId>font-awesome</artifactId>
+                    <version>5.12.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.webjars</groupId>
+                    <artifactId>webjars-locator</artifactId>
+                    <version>0.38</version>
+                </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -67,7 +77,15 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>
