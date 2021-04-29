@@ -19,9 +19,12 @@
             </div>
         </header>
         <section id="about">
-            Every car you want int one place
+            Every car you want in one place
         </section>
         <section id="search">
+            <div id="add">
+                <a th:href="@{/add}">Add Car</a>
+            </div>
         </section>
         <section class="cars">
             <div class="container">
@@ -29,13 +32,15 @@
                 <div class="cars-container" th:if="${cars != null and !cars.empty}">
                     <div class="car" th:each="car : ${cars}">
                         <div class="thumb">
-
+                            <img th:with="carName=${car.name}" th:src="@{/img/genericCar.jpg}" src="../static/img/A4.jpg" height="250" alt="Car">
                         </div>
                         <div class="description">
                             <p class="name" th:text="${car.name}">Show name</p>
                             <p class="make" th:text="${car.brand}">Show make</p>
                             <p class="model" th:text="${car.year}">Show model</p>
                             <p class="available" th:text="${car.availability}">Show Availability</p>
+                            <p class="button"><a th:href="@{/edit/} + ${car.idCar}" th:text="Edit"></a></p>
+                            <p class="button"><a th:href="@{/delete(idCar=${car.idCar})}" th:text="Delete"></a></p>
                         </div>
                     </div>
                 </div>

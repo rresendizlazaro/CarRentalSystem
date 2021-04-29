@@ -2,6 +2,7 @@ package ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -15,8 +16,13 @@ public class Car implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCar;
+    
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String brand;
+    @NotEmpty
     private String year;
+    @NotEmpty
     private String availability;
 }
