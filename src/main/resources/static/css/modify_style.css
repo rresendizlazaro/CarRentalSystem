@@ -1,0 +1,120 @@
+:root{
+    --white: #eee;
+    --dark: #555;
+    --primary: #4169E1;
+    --secondary: #31337a;
+    --contrast: #05cdff;
+    --gray: #ccc;
+    --tooDark: #222;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--dark);
+    font-family: 'Asap Condensed', sans-serif;
+    font-size: 1rem;
+}
+
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+h1{
+    padding: 20px;
+    margin: 0;
+}
+
+#return{
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    background: var(--white);
+    cursor: pointer;
+}
+
+#return a{
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+#return:hover{
+    background: var(--tooDark);
+    color: var(--contrast);
+}
+
+#return:hover a{
+    color: var(--contrast);
+}
+
+form{
+    padding: 50px;
+    text-align: center;
+}
+form label{
+    padding: 0px 0px;
+    font-size: 25px;
+}
+
+form input{
+    display: block;
+    margin: 0px auto;
+    border-radius: 5px;
+}
+
+form input[type="text"]{
+    font-size: 20px;
+    display: block;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 50%;
+    box-shadow: 0px 0px 5px black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+form input[type="submit"]{
+    font-size: 30px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px black;
+}
+
+form input[type="submit"]:hover{
+    border-radius: 5px;
+    border: 1px solid black;
+    background: #555;
+    color: white;
+}
+
+@media screen and (max-width: 800px){
+    .modify .container{
+        width: 80%;
+    }
+    
+    form{
+        padding: 0px;
+        text-align: center;
+    }
+
+    form input[type="text"]{
+        width: 90%;
+    }
+}

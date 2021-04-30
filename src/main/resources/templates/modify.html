@@ -5,26 +5,34 @@
         <title>Car Data</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/modify_style.css}" href="../static/css/modify_style.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Car Data</h1>
-        <a th:href="@{/}">Return</a>
+        <div id="return">
+            <a th:href="@{/}">Return</a>
+        </div>
         <br/>
-        <form th:action="@{/save}" method="POST" th:object="${car}">
-            <input type="hidden" name="idCar" th:field="*{idCar}" />
-            <label for="name">Name:</label>
-            <input type="text" name="name" th:field="*{name}" />
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error name</span>
-            <label for="brand">Make:</label>
-            <input type="text" name="brand" th:field="*{brand}" />
-            <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error make</span>
-            <label for="year">Model:</label>
-            <input type="text" name="year" th:field="*{year}" />
-            <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error year</span>
-            <label for="availability">Available:</label>
-            <input type="text" name="availability" th:field="*{availability}" />
-            <span th:if="${#fields.hasErrors('availability')}" th:errors="*{availability}">Error name</span>
-            <input type="submit" name="save" value="save" />
-        </form>
+        <section class="modify">
+            <div class="container">
+                <form class="edit-form" th:action="@{/save}" method="POST" th:object="${car}">
+                    <input type="hidden" name="idCar" th:field="*{idCar}" />
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" th:field="*{name}" />
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error name</span>
+                    <label for="brand">Make:</label>
+                    <input type="text" name="brand" th:field="*{brand}" />
+                    <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error make</span>
+                    <label for="year">Model:</label>
+                    <input type="text" name="year" th:field="*{year}" />
+                    <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error year</span>
+                    <label for="availability">Available:</label>
+                    <input type="text" name="availability" th:field="*{availability}" />
+                    <span th:if="${#fields.hasErrors('availability')}" th:errors="*{availability}">Error name</span>
+                    <input type="submit" name="save" value="save" />
+                </form>
+            </div>
+        </section>
     </body>
 </html>

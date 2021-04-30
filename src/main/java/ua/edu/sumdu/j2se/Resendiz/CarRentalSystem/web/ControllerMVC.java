@@ -2,6 +2,8 @@ package ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.web;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,7 +20,7 @@ public class ControllerMVC {
     private CarService carService;
     
     @GetMapping("/")
-    public String start(Model model){
+    public String start(Model model, @AuthenticationPrincipal User user){
         var cars = carService.listCars();
         model.addAttribute("cars", cars);
         return "index";
