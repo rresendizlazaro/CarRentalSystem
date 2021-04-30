@@ -1,29 +1,30 @@
 package ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
-//Creates al the methods for the class
-@Data
+
 @Entity
-@Table(name = "car")
-public class Car implements Serializable{
-    
+@Data
+@Table(name="user")
+public class CUser implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    //Indicating the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCar;
+    private Long idUser;
     
     @NotEmpty
-    private String name;
+    private String username;
+    
     @NotEmpty
-    private String brand;
-    @NotEmpty
-    private String year;
-    @NotEmpty
-    private String availability;
+    private String password;
+    
+    //Relationship between user and role
+    @OneToMany
+    @JoinColumn(name="id_user")
+    private List<Role> roles;
 }

@@ -5,25 +5,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
-//Creates al the methods for the class
-@Data
+
 @Entity
-@Table(name = "car")
-public class Car implements Serializable{
-    
+@Data
+@Table(name="role")
+public class Role implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    //Indicating the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCar;
+    private long idRole;
     
     @NotEmpty
     private String name;
-    @NotEmpty
-    private String brand;
-    @NotEmpty
-    private String year;
-    @NotEmpty
-    private String availability;
 }
