@@ -1,3 +1,4 @@
+/*######Color variables######*/
 :root{
     --white: #eee;
     --dark: #555;
@@ -6,8 +7,11 @@
     --contrast: #05cdff;
     --gray: #ccc;
     --tooDark: #222;
+    --true: #81fc0d;
+    --false: #fc0d0d;
 }
 
+/*######Default######*/
 *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -16,7 +20,7 @@
 
 body{
     background: var(--dark);
-    font-family: 'Asap Condensed', sans-serif;
+    font-family: RobotoCondensed, Arial;
     font-size: 1rem;
 }
 
@@ -25,11 +29,35 @@ body{
 }
 
 .title{
+    display: block;
+    float: left;
     color: var(--contrast);
     font-weight: 700;
+    font-size: 40px;
     margin: 0;
     padding-left: 20px;
     padding-top: 20px;
+}
+
+.subtitle{
+    display: block;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.user_info{
+    display: block;
+    float: right;
+    margin: 20px;
+    padding: 5px;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
 }
 
 .nav-menu{
@@ -47,6 +75,7 @@ body{
     font-weight: 700;
     padding: 1rem;
     cursor: pointer;
+    transition: all 200ms;
 }
 
 .nav-menu a:hover{
@@ -54,14 +83,84 @@ body{
     color: var(--oscuro);
 }
 
-#about{
-    background: var(--primary);
-    padding: 20px;
-    color: var(--white);
-    text-align: center;
-    font-size: 1.5rem;
+#banner{
+    width: 90%;
+    height: 90px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    background-image: url(../img/bakbaner.png);
+    background-position: -200px -200px;
+    margin: 20px auto;
+    overflow: hidden;
+    animation: backBanner 10s linear;
 }
 
+@keyframes backBanner{
+    0%{
+        background-position: 0px 0px;
+    }
+    100%{
+        background-position: -200px -200px;
+    }
+}
+
+#banner h2{
+    display: block;
+    width: 850px;
+    color: white;
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 0px auto;
+    margin-top: 27px;
+    margin-right: 5px;
+    animation: showText 5s linear;
+}
+
+@keyframes showText{
+    0%{
+        transform: translateX(-600%) scale(5,5);
+        opacity: 1;
+    }
+    50%{
+        transform: translateX(600%) scale(5,5);
+        opacity: 1;
+    }
+    75%{
+        transform: translateX(-600%) scale(5,5);
+        text-shadow: none;
+        color: transparent;
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%) scale(1,1);
+        text-shadow: 2px 2px 1px black;
+        color: white;
+        opacity: 1;
+    }
+}
+
+.menu .user_info #username{
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--white);
+}
+
+.menu .user_info #username input{
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--secondary);
+    transition: all 200ms;
+}
+
+.menu .user_info #username input:hover{
+    background: var(--tooDark);
+    color: var(--contrast);
+}
+
+/*######INFO######*/
 #search{
     padding: 20px;
 }
@@ -81,6 +180,7 @@ body{
 #search #add a{
     text-decoration: none;
     color: var(--secondary);
+    transition: all 200ms;
 }
 
 #search #add:hover{
@@ -93,7 +193,9 @@ body{
 }
 
 .cars{
-    background: #f2f2f2;
+    background-image: url("../img/bg.png");
+    background-color: #f2f2f2;
+    background-size: auto;
     padding: 60px 0;
 }
 
@@ -123,6 +225,7 @@ body{
     margin-bottom: 40px;
     cursor: pointer;
     border-radius: 10px;
+    transition: all 200ms;
 }
 
 .cars .jobs-container .car .thumb{
@@ -175,11 +278,14 @@ body{
 
 .cars .cars-container .car .description .available{
     font-size: 17px;
-    color: #636363;
+    background: var(--true);
+    color: black;
 }
 
-.cars .cars-container .car:hover .description .available{
-    color: var(--white);
+.cars .cars-container .car .description .unavailable{
+    font-size: 17px;
+    background: var(--false);
+    color: white;
 }
 
 .cars .cars-container .car .description .button{
@@ -189,6 +295,7 @@ body{
     border-radius: 5px;
     background: var(--white);
     margin: 10px;
+    transition: all 200ms;
 }
 
 .cars .cars-container .car .description .button:hover{

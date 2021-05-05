@@ -5,15 +5,29 @@
         <title>Login</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/login_style.css}" href="../static/css/login_style.css" rel="stylesheet"/>
     </head>
     <body>
-        <h1>Login</h1>
-        <form method="POST" th:action="@{/login}">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username"/>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password"/>
-            <input type="submit" value="Login" />
-        </form>
+        <h1 class="title">Car Rental System</h1>
+        <div class="clearfix"></div>
+        <section class="log">
+            <h2>Login</h2>
+            <form method="POST" th:action="@{/login}">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username"/>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password"/>
+                <input type="submit" value="Login" />
+            </form>
+        </section>
+        <div class="menu">
+            <p class="button"><a th:href="@{/home}">Home</a></p>
+        </div>
+        <footer>
+            <div id="content">
+                Car Rental System &copy All Rights Reserved Raul Resendiz
+            </div>
+        </footer>
     </body>
 </html>
