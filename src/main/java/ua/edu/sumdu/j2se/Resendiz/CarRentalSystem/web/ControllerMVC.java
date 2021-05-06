@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.CUser;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.Car;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.CarService;
+import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.RoleService;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.UserService;
 
 @Controller
@@ -29,29 +30,30 @@ public class ControllerMVC {
         model.addAttribute("cars", cars);
         return "home";
     }
+    
+    @GetMapping("/logup")
+    public String registerUser(Model model) {
+        model.addAttribute("user", new CUser());
+        return "register";
+    }
+
+    @PostMapping("/process_register")
+    public String processRegister(@Valid CUser user, Errors errors) {
+        if (errors.hasErrors()) {
+            return "register";
+        }
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userService.save(user);
+
+        return "register_success";
+    }
 
     //Login
     @GetMapping("/login")
     public String log() {
         return "login";
-    }
-
-    @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new CUser());
-
-        return "register";
-    }
-
-    @PostMapping("/process_register")
-    public String processRegister(CUser user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-
-        userService.save(user);
-
-        return "register_success";
     }
 
     //Index w auth

@@ -1,15 +1,13 @@
 package ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
-
-@Entity
 @Data
+@Entity
 @Table(name="user")
 public class CUser implements Serializable{
     private static final long serialVersionUID = 1L;
