@@ -4,7 +4,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.CUser;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.Car;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.CarService;
-import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.RoleService;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.UserService;
 
 @Controller
@@ -23,30 +21,50 @@ public class ControllerMVC {
     @Autowired
     private CarService carService;
     private UserService userService;
-    
+
     @GetMapping("/home")
-    public String home(Model model){
+    public String home(Model model) {
         var cars = carService.listCars();
         model.addAttribute("cars", cars);
         return "home";
     }
-    
+
     @GetMapping("/logup")
     public String registerUser(Model model) {
         model.addAttribute("user", new CUser());
         return "register";
     }
-
-    @PostMapping("/process_register")
-    public String processRegister(@Valid CUser user, Errors errors) {
+    
+    @PostMapping("/register")
+    public String register(@Valid CUser userForm, Errors errors) {
         if (errors.hasErrors()) {
             return "register";
         }
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        userService.save(user);
+        try {
+            //Roles
+            userService.save(userForm);
+        } catch (Exception ex) {
+            System.out.print(ex + "User not registered");
+        }
 
+        return "register_success";
+    }
+
+//    @PostMapping("/register")
+//    public String register(@Valid CUser user, Errors errors) {
+//        if (errors.hasErrors()) {
+//            return "register";
+//        }
+//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        String encodedPassword = passwordEncoder.encode(user.getPassword());
+//        user.setPassword(encodedPassword);
+//        userService.save(user);
+//
+//        return "register_success";
+//    }
+    
+    @GetMapping("/success")
+    public String success() {
         return "register_success";
     }
 

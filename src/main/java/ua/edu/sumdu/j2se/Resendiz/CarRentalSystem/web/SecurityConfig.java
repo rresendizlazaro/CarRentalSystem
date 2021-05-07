@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                     .formLogin()
                     .loginPage("/login")
-                    .permitAll()
+//                    .permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/errors/403")
                 ;

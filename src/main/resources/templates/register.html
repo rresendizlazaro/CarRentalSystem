@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>TODO supply a title</title>
+        <title>Register</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!--<link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
@@ -18,15 +18,14 @@
             <div>
                 <h1>User Registration - Sign Up</h1>
             </div>
-            <form th:action="@{/process_register}" method="POST" th:object="${cUser}">
-                <input type="hidden" name="idUser" th:field="*{idUser}" />
-                <label class="username">Username: </label>
+            <form th:action="@{/register}" method="POST" th:object="${user}">
+                <label for="username">Username: </label>
                 <input type="text" name="username" th:field="*{username}" />
                 <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error username</span>
-                <label class="password">Password: </label>
+                <label for="password">Password: </label>
                 <input type="password" name="password" th:field="*{password}" />
                 <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error password</span>
-                <input type="submit" name="process_register" value="register" />
+                <input type="submit" name="register" value="Register" />
             </form>
         </div>
         <footer>

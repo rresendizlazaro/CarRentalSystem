@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class EncriptPassword {
     public static void main(String[] args) {
         //Algorithm to encript password
-        String password = "123";
+        String password = "12345678";
         System.out.println("password: " + password);
         System.out.println("Encripted password: " + encript(password));
     }
