@@ -223,7 +223,6 @@ body{
 .cars .cars-container .car{
     width: 30%;
     margin-bottom: 40px;
-    cursor: pointer;
     border-radius: 10px;
     transition: all 200ms;
 }
@@ -237,6 +236,7 @@ body{
     width: 100%;
     vertical-align: top;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .cars .cars-container .car .description{
@@ -273,6 +273,18 @@ body{
 }
 
 .cars .cars-container .car:hover .description .model{
+    color: var(--white);
+}
+
+.cars .cars-container .car .description .price{
+    font-size: 25px;
+    font-weight: 700;
+    color: #01182e;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.cars .cars-container .car:hover .description .price{
     color: var(--white);
 }
 

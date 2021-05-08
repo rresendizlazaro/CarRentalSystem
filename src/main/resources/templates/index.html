@@ -22,7 +22,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <nav class="nav-menu container">
-                    <a>Login</a>
+                    <a>Reservation</a>
                     <a>Search</a>
                     <a>Gallery</a>
                 </nav>
@@ -52,8 +52,10 @@
                             <p class="model" th:text="${car.year}">Show model</p>
                             <p class="available" th:if='${car.availability == "true"}'>Available</p>
                             <p class="unavailable" th:if='${car.availability == "false"}'>Unavailable</p>
+                            <p class="price" th:text="'$'+${car.price}">Show price</p>
                             <p sec:authorize="hasRole('ROLE_ADMIN')" class="button"><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/edit/} + ${car.idCar}" th:text="Edit"></a></p>
                             <p sec:authorize="hasRole('ROLE_ADMIN')" class="button"><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete(idCar=${car.idCar})}" th:text="Delete"></a></p>
+                            <p sec:authorize="hasRole('ROLE_USER')" class="button"><a sec:authorize="hasRole('ROLE_USER')" th:href="@{/bookCar/} + ${car.idCar}" th:text="Book"></a></p>
                         </div>
                     </div>
                 </div>

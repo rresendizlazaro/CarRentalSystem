@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Reservation</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/reservation_style.css}" href="../static/css/reservation_style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Reservation</h1>
+        <div id="return">
+            <a th:href="@{/}">Return</a>
+        </div>
+        <br/>
+        <section class="modify">
+            <div class="container">
+                <form class="reservation-form" th:action="@{/saveReservation}" method="POST" th:object="${reservation}">
+                    <span th:text="'Name: ' + ${car.name}">Show car name</span>
+                    <span th:text="'Make: ' + ${car.brand}">Show car name</span>
+                    <span th:text="'Model: ' + ${car.year}">Show car name</span>
+                    <span th:text="'Price: $' + ${car.price}">Show car name</span>
+
+                    <input type="hidden" name="idReservation" th:field="*{idReservation}" />
+                    <input class="form-control" type="hidden" th:value="${car.idCar}" id="idCar" name="idCar" />
+                    <label for="startDate">Reservation Start</label>
+                    <input type="text" name="date" th:field="*{start_time}"/>
+                    <label for="startDate">Reservation End</label>
+                    <input type="text" name="date" th:field="*{end_time}"/>
+                    <input type="submit" name="saveReservation" value="Generate Reservation Number" />
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

@@ -30,9 +30,16 @@
                     <label for="availability">Available:</label>
                     <input type="text" name="availability" th:field="*{availability}" />
                     <span th:if="${#fields.hasErrors('availability')}" th:errors="*{availability}">Error name</span>
+                    <input type="text" name="price" th:field="*{price}" />
+                    <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error price</span>
                     <input type="submit" name="save" value="save" />
                 </form>
             </div>
         </section>
+        <footer>
+            <div id="content">
+                Car Rental System &copy All Rights Reserved Raul Resendiz
+            </div>
+        </footer>
     </body>
 </html>

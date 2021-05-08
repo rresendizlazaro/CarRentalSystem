@@ -1,0 +1,31 @@
+/*######Color variables######*/
+:root{
+    --white: #eee;
+    --dark: #555;
+    --primary: #4169E1;
+    --secondary: #31337a;
+    --contrast: #05cdff;
+    --gray: #ccc;
+    --tooDark: #222;
+    --true: #81fc0d;
+    --false: #fc0d0d;
+}
+
+/*######Default######*/
+*{
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--dark);
+    font-family: RobotoCondensed, Arial;
+    font-size: 1rem;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}

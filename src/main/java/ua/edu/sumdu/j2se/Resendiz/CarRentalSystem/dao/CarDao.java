@@ -10,5 +10,7 @@ public interface CarDao extends JpaRepository<Car, Long>{
     
     Car findByYear(String string);
     
+    Car findByPrice(int price);
+    
     Car findByAvailability(String string);
 }

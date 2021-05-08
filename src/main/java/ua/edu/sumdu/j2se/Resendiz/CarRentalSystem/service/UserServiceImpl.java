@@ -55,4 +55,11 @@ public class UserServiceImpl implements UserDetailsService, UserService{
         user.setRoles(new HashSet< > (roledao.findAll()));
         userDao.save(user);
     }
+    
+    @Transactional(readOnly=true)
+    public int getId(String username){
+        CUser user = userDao.findByUsername(username);
+        int id = Math.toIntExact(user.getIdUser());
+        return id;
+    }
 }

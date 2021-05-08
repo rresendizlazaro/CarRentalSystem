@@ -2,7 +2,7 @@ package ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 import lombok.Data;
 
 //Creates al the methods for the class
@@ -26,4 +26,6 @@ public class Car implements Serializable{
     private String year;
     @NotEmpty
     private String availability;
+    @NotNull
+    private int price;
 }
