@@ -15,8 +15,8 @@ public class ReservationServiceImpl implements ReservationService{
     
     @Override
     @Transactional(readOnly = true)
-    public List<Reservation> listReservations() {
-        return (List<Reservation>) reservationDao.findAll();
+    public List<Reservation> listReservations(int number) {
+        return (List<Reservation>) reservationDao.findByIdUser(number);
     }
     
     @Override

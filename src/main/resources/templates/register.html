@@ -5,19 +5,20 @@
         <title>Register</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--<link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
-        <link th:href="@{/css/register_style.css}" href="../static/css/register_style.css" rel="stylesheet"/>-->
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/login_style.css}" href="../static/css/login_style.css" rel="stylesheet"/>
     </head>
     <body>
-        <h1>Register</h1>
-        <div id="return">
-            <a th:href="@{/home}">Return</a>
-        </div>
-        <br/>
-        <div class="register">
-            <div>
-                <h1>User Registration - Sign Up</h1>
-            </div>
+        <h1 class="title">Car Rental System <i class="fas fa-car"></i></h1>
+        <div class="clearfix"></div>
+        <section class="log">
+            <section id="banner">
+                <h2>
+                    Powered by Spring Security
+                </h2>            
+            </section>
+            <h2>User Registration - Sign Up <i class="fas fa-user-plus"></i></h2>
             <form th:action="@{/register}" method="POST" th:object="${user}">
                 <label for="username">Username: </label>
                 <input type="text" name="username" th:field="*{username}" />
@@ -27,6 +28,9 @@
                 <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error password</span>
                 <input type="submit" name="register" value="Register" />
             </form>
+        </section>
+        <div class="menu">
+            <p class="button"><a th:href="@{/home}">Return</a></p>
         </div>
         <footer>
             <div id="content">

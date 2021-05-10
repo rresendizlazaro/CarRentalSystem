@@ -39,10 +39,68 @@ body{
     font-size: 40px;
 }
 
+/*######BANNER######*/
+#banner{
+    width: 90%;
+    height: 90px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    background-image: url(../img/green.jpg);
+    background-position: -600px -250px;
+    margin: 20px auto;
+    overflow: hidden;
+    animation: backBanner 10s linear;
+}
+
+@keyframes backBanner{
+    0%{
+        background-position: 0px 0px;
+    }
+    100%{
+        background-position: -600px -250px;
+    }
+}
+
+#banner h2{
+    display: block;
+    width: 850px;
+    color: white;
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 0px auto;
+    margin-top: 27px;
+    margin-right: 120px;
+    animation: showText 5s linear;
+}
+
+@keyframes showText{
+    0%{
+        transform: translateX(-600%) scale(5,5);
+        opacity: 1;
+    }
+    50%{
+        transform: translateX(600%) scale(5,5);
+        opacity: 1;
+    }
+    75%{
+        transform: translateX(-600%) scale(5,5);
+        text-shadow: none;
+        color: transparent;
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%) scale(1,1);
+        text-shadow: 2px 2px 1px black;
+        color: white;
+        opacity: 1;
+    }
+}
+
 /*######Return######*/
 .menu{
     background: var(--secondary);
-    padding: 40px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -80,8 +138,14 @@ body{
     background-image: url(../img/paven.png);
 }
 
+.log h2{
+    color: var(--primary);
+    font-size: 35px;
+    text-align: center;
+}
+
 .log form{
-    padding: 50px;
+    padding: 30px;
     text-align: center;
 }
 .log form label{
@@ -98,6 +162,31 @@ body{
 .log form input[type="text"],[type="password"]{
     font-size: 20px;
     display: block;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 50%;
+    box-shadow: 0px 0px 5px black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.log form input[type="number"]{
+    font-size: 20px;
+    display: block;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 50%;
+    box-shadow: 0px 0px 5px black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.log form select{
+    font-size: 20px;
+    display: block;
+    margin: 0px auto;
     padding: 6px;
     border-radius: 2px;
     border: 1px solid #ccc;
@@ -136,6 +225,11 @@ footer #content{
     font-size: 1.2rem;
 }
 
+footer #content a{
+    text-decoration: none;
+    color: var(--contrast);
+}
+
 @media screen and (max-width: 800px){
     .modify .container{
         width: 80%;
@@ -147,6 +241,14 @@ footer #content{
     }
 
     .log form input[type="text"],[type="password"]{
+        width: 90%;
+    }
+    
+    .log form input[type="number"]{
+        width: 90%;
+    }
+    
+    .log form select{
         width: 90%;
     }
 }

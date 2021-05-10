@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Reservation info</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/reservation_style.css}" href="../static/css/reservation_style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1 class="title">Car Rental System <i class="fas fa-car"></i></h1>
+        <div class="clearfix"></div>
+        <section id="banner">
+            <h2>
+                Thank you for choosing us
+            </h2>            
+        </section>
+        <section class="modify">
+            <h2>Reservation Info:</h2>
+            <div class="container">
+                <form class="reservation-form" th:action="@{/searchReservation}" method="POST" th:object="${reservation}">
+                    <label for="number">Type your order number:</label>
+                    <input type="text" name="name" th:field="*{number}" />
+                    <input type="submit" name="search" value="Search" />
+                </form>
+            </div>
+        </section>
+        <div class="menu">
+            <p class="button"><a th:href="@{/}">Return <i class="fas fa-home"></i></a></p>
+        </div>
+        <footer>
+            <div id="content">
+                Car Rental System &copy All Rights Reserved <a th:href="@{https://rresendizlazaro.github.io/raulresendiz/index.html}">Raul Resendiz</a>
+            </div>
+        </footer>
+    </body>
+</html>

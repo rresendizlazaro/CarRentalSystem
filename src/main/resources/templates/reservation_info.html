@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Reservation info</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
+        <link th:href="@{/css/reservation_info_style.css}" href="../static/css/reservation_info_style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1 class="title">Car Rental System <i class="fas fa-car"></i></h1>
+        <div class="clearfix"></div>
+        <section id="banner">
+            <h2>
+                See you on the counter
+            </h2>            
+        </section>
+        <section class="Details">
+            <h2>Reservation Info:</h2>
+            <div class="reservation-container" th:if="${car.name != null}">
+                <div class="thumb">
+                    <img th:src="@{/img/genericCar.jpg}" src="../static/img/genericCar.jpg" height="250" alt="Car" />
+                </div>
+                <div class="description">
+                    <p th:text="'Car:' + ${car.name}">Show name</p>
+                    <p th:text="'Make:' + ${car.brand}">Show make</p>
+                    <p th:text="'Year:' + ${car.year}">Show model</p>
+                    <p th:text="'Reservation number: ' + ${reservation.number} + '  (IMPORTANT)'">Show reservation</p>
+                    <p th:text="'Start date:' + ${reservation.start_time}">Show start time</p>
+                    <p th:text="'End date: ' + ${reservation.end_time}">Show end time</p>
+                    <p th:text="'Total: ' + ${reservation.total}">Show total price</p>
+                </div>
+                <div class="menu">
+                    <p class="button"><a th:href="@{/deleteReservation(idReservation=${reservation.idReservation})}">Delete <i class="fas fa-trash-alt"></i></a></p>
+                </div>
+            </div>
+            <div class="sorry" th:if="${car.name == null}">
+                Sorry invalid number <i class="fas fa-sad-cry"></i>
+            </div>
+        </section>
+        <div class="menu">
+            <p class="button"><a th:href="@{/}">Return <i class="fas fa-home"></i></a></p>
+        </div>
+        <footer>
+            <div id="content">
+                Car Rental System &copy All Rights Reserved <a th:href="@{https://rresendizlazaro.github.io/raulresendiz/index.html}">Raul Resendiz</a>
+            </div>
+        </footer>
+    </body>
+</html>

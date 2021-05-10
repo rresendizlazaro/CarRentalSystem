@@ -5,18 +5,26 @@
         <title>Reservation</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
         <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
         <link th:href="@{/css/reservation_style.css}" href="../static/css/reservation_style.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" th:src="@{/js/reservation.js}"></script>
     </head>
     <body>
-        <h1>Reservation</h1>
-        <div id="return">
-            <a th:href="@{/}">Return</a>
-        </div>
-        <br/>
+        <h1 class="title">Car Rental System <i class="fas fa-car"></i></h1>
+        <div class="clearfix"></div>
+        <section id="banner">
+            <h2>
+                Thank you for choosing us
+            </h2>            
+        </section>
         <section class="modify">
+            <h2>Reservation</h2>
             <div class="container">
                 <form class="reservation-form" th:action="@{/saveReservation}" method="POST" th:object="${reservation}">
+                    <h3>Car data:</h3>
                     <span th:text="'Name: ' + ${car.name}">Show car name</span>
                     <span th:text="'Make: ' + ${car.brand}">Show car name</span>
                     <span th:text="'Model: ' + ${car.year}">Show car name</span>
@@ -25,12 +33,20 @@
                     <input type="hidden" name="idReservation" th:field="*{idReservation}" />
                     <input class="form-control" type="hidden" th:value="${car.idCar}" id="idCar" name="idCar" />
                     <label for="startDate">Reservation Start</label>
-                    <input type="text" name="date" th:field="*{start_time}"/>
-                    <label for="startDate">Reservation End</label>
-                    <input type="text" name="date" th:field="*{end_time}"/>
+                    <input id="start" type="text" name="date" th:field="*{start_time}"/>
+                    <label for="endtDate">Reservation End</label>
+                    <input id="end" type="text" name="date" th:field="*{end_time}"/>
                     <input type="submit" name="saveReservation" value="Generate Reservation Number" />
                 </form>
             </div>
         </section>
+        <div class="menu">
+            <p class="button"><a th:href="@{/}">Return <i class="fas fa-home"></i></a></p>
+        </div>
+        <footer>
+            <div id="content">
+                Car Rental System &copy All Rights Reserved <a th:href="@{https://rresendizlazaro.github.io/raulresendiz/index.html}">Raul Resendiz</a>
+            </div>
+        </footer>
     </body>
 </html>

@@ -4,7 +4,7 @@ import java.util.List;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.Reservation;
 
 public interface ReservationService {
-    public List<Reservation> listReservations();
+    public List<Reservation> listReservations(int number);
     
     public void save(Reservation reservation);
     

@@ -6,18 +6,21 @@
         <title>Home Car Rental</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
         <link th:href="@{/css/normalize.css}" href="../static/css/normalize.css" rel="stylesheet"/>
         <link th:href="@{/css/main.css}" href="../static/css/main.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" th:src="@{/js/index.js}"></script>
     </head>
     <body>
         <header>
             <div class="menu">
-                <h1 class="title">Car Rental System</h1>
+                <h1 class="title">Car Rental System <i class="fas fa-car"></i></h1>
                 <div class="clearfix"></div>
                 <nav class="nav-menu container">
                     <a th:href="@{/login}">Log in</a>
                     <a th:href="@{/logup}">Register</a>
-                    <a>Gallery</a>
+                    <a id="gallery">Gallery</a>
                 </nav>
             </div>
         </header>
@@ -25,6 +28,11 @@
             <h2>
                 Every car you want in one place
             </h2>            
+        </section>
+        <section id="search">
+            <div id="ordering">
+                <h3>Log in to get the best experience</h3>
+            </div>
         </section>
         <section class="cars">
             <div class="container">
@@ -50,7 +58,7 @@
         </section>
         <footer>
             <div id="content">
-                Car Rental System &copy All Rights Reserved Raul Resendiz
+                Car Rental System &copy All Rights Reserved <a th:href="@{https://rresendizlazaro.github.io/raulresendiz/index.html}">Raul Resendiz</a>
             </div>
         </footer>
     </body>
