@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.constants.Constants;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.dao.CarDao;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.dao.ReservationDao;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.dao.UserDao;
@@ -26,6 +27,7 @@ import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.domain.Reservation;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.CarService;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.ReservationService;
 import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.service.UserService;
+import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.constants.Constants;
 
 @Controller
 public class ControllerMVC {
@@ -143,7 +145,7 @@ public class ControllerMVC {
         //Setting reservation number
         reservation.setNumber((int) (Math.random() * 100000000));
         //Setting price by days
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Constants.DATEFORMAT.getValue());
         LocalDate start = LocalDate.parse(reservation.getStart_time(), formatter);
         LocalDate end = LocalDate.parse(reservation.getEnd_time(), formatter);
         int days = (int) ChronoUnit.DAYS.between(start, end);

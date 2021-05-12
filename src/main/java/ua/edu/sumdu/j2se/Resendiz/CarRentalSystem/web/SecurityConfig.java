@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.constants.Constants;
+import ua.edu.sumdu.j2se.Resendiz.CarRentalSystem.constants.Constants;
 
 @Configuration
 @EnableWebSecurity
@@ -17,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsService userDetailsService;
     
-    //Using encription
+    //Using encryption
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -32,15 +34,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/edit/**", "/add/**", "/delete")
-                    .hasRole("ADMIN")
-                .antMatchers("/")
-                    .hasAnyRole("USER","ADMIN")
+                .antMatchers(Constants.EDIT.getValue(), Constants.ADD.getValue(), Constants.DELETE.getValue())
+                    .hasRole(Constants.ADMIN.getValue())
+                .antMatchers(Constants.PATH.getValue())
+                    .hasAnyRole(Constants.USER.getValue(),Constants.ADMIN.getValue())
                 .and()
                     .formLogin()
-                    .loginPage("/login")
+                    .loginPage(Constants.LOGIN.getValue())
                 .and()
-                .exceptionHandling().accessDeniedPage("/errors/403")
+                .exceptionHandling().accessDeniedPage(Constants.ERRORS.getValue())
                 ;
     }
 }
